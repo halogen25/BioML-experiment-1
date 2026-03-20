@@ -58,7 +58,7 @@ def fetch_seed_library():
     """
     compounds = [
         # Known FabB/FabF inhibitors and related natural products
-        ("Cerulenin",           "O=C1CC(=O)/C=C/[C@@H]1CC/C=C/CCCC",              "NP001"),
+        ("Cerulenin",           "C/C=C/C/C=C/CCC(=O)[C@@H]1[C@@H](O1)C(=O)N",     "NP001"),
         ("Platensimycin",       "O=C(O)c1cc(NC(=O)[C@@H]2CC[C@]3(C)CC[C@@H]4CC(=O)C[C@H]4[C@@H]3C2)ccc1O", "NP002"),
         ("Thiolactomycin",      "CC1=C(C(=O)O)C(C)=C(C)S1",                       "NP003"),
         ("Platencin",           "O=C(O)c1cc(NC(=O)[C@@H]2CC[C@]3(CC[C@@H]4CC(=O)C[C@H]43)C2)ccc1O", "NP004"),
@@ -85,7 +85,7 @@ def fetch_seed_library():
         ("Terpinen-4-ol",       "CC1CC(O)(C(C)C)CC=C1",                           "NP025"),
         ("Oleanolic acid",      "CC1(C)CCC2(C(=O)O)CCC3(C)C(=CC4C3CC(O)(CC4C)C(C)(C)C2)C1", "NP026"),
         ("Ursolic acid",        "CC1CCC2(C(=O)O)CCC3(C)C(=CC4C3CC(O)(CC4C)C(C)(C)C2)C1C", "NP027"),
-        ("Betulinic acid",      "CC(=C)[C@@H]1CC[C@@]2(C(=O)O)CC[C@]3(C)[C@H](=C[C@@H]4[C@@]3(CC[C@@H]4[C@@H]2C1)C)C", "NP028"),
+        ("Betulinic acid",      "CC(=C)[C@@H]1CC[C@]2([C@H]1[C@H]3CC[C@@H]4[C@]5(CC[C@@H](C([C@@H]5CC[C@]4([C@@]3(CC2)C)C)(C)C)O)C)C(=O)O", "NP028"),
         ("Coumarin",            "O=c1ccc2ccccc2o1",                                "NP029"),
         ("Caffeic acid",        "OC(=O)/C=C/c1ccc(O)c(O)c1",                      "NP030"),
     ]
