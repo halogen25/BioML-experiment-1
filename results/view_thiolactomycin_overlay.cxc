@@ -1,52 +1,40 @@
-# ChimeraX session script — Thiolactomycin docked pose vs crystal structure (2AQB)
-# Clean view: ribbon diagrams + small molecules only, one dimer each
+# ChimeraX session script — Thiolactomycin docked pose vs 2AQB crystal (TL6)
+# Pre-cleaned PDBs: one A+B dimer each, ligands already included
 
-# Load our docked receptor and Thiolactomycin pose
-open ../receptor/2VBA_prepared.pdb
+# Open pre-extracted dimer PDBs
+open ../receptor/2VBA_AB.pdb
+open ../receptor/2AQB_AB.pdb
 open Thiolactomycin_docked.pdb
 
-# Load crystal structure with TL6 bound in both active sites
-open ../receptor/2AQB.pdb
-
-# Rename for clarity
 rename #1 name FabB_2VBA
-rename #2 name Thiolactomycin_docked
-rename #3 name FabB_2AQB_crystal
+rename #2 name FabB_2AQB_crystal
+rename #3 name Thiolactomycin_docked
 
-# --- Trim to one dimer: keep only chains A and B ---
-delete #1/C,D
-delete #3/C,D
+# Align 2AQB onto 2VBA
+matchmaker #2 to #1 showAlignment false
 
-# --- Align 2AQB onto our receptor ---
-matchmaker #3 to #1 showAlignment false
-
-# --- Show ribbons only, no atoms ---
+# Ribbon for both receptors, no atoms
 cartoon #1
-cartoon #3
+cartoon #2
 hide #1 atoms
-hide #3 atoms
+hide #2 atoms
 
-# --- Color the two receptors distinctly ---
-color #1 cartoon #5b9bd5    # blue  — 2VBA (our docked receptor)
-color #3 cartoon #e07b54    # orange — 2AQB crystal
+# Color ribbons
+color #1 cartoon #5b9bd5
+color #2 cartoon #e07b54
 
-# --- Docked Thiolactomycin (our result) ---
-show #2 atoms
-style #2 stick
-color #2 byelement
+# Show all small molecules in 2AQB (TL6 — already the only hetatm)
+show #2 & ligand atoms
+style #2 & ligand stick
+color #2 & ligand byelement
 
-# --- Crystal TL6 ligands from chains A and B of 2AQB ---
-show #3/A:600 atoms
-show #3/B:601 atoms
-style #3/A:600 stick
-style #3/B:601 stick
-color #3/A:600 byelement
-color #3/B:601 byelement
+# Show docked thiolactomycin
+show #3 atoms
+style #3 stick
+color #3 byelement
 
-# --- Focus on the ligands ---
-view #2
-
-# --- Clean scene ---
+# Focus on ligands
+view #3
 lighting soft
 set bgColor white
 graphics silhouettes true
