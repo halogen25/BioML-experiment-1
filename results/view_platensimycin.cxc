@@ -1,0 +1,47 @@
+# ChimeraX session script — Platensimycin docked pose in FabB (P0A953)
+# Run with: chimerax view_platensimycin.cxc
+
+# Load receptor and ligand
+open ../receptor/2VBA_prepared.pdb
+open Platensimycin_docked.pdb
+
+# Name the models for clarity
+rename #1 name FabB_receptor
+rename #2 name Platensimycin
+
+# --- Receptor styling ---
+cartoon #1
+cartoon style #1 width 1.0 thickness 0.4
+color #1 #5b9bd5 cartoon
+hide #1 atoms
+
+# --- Ligand styling ---
+show #2 atoms
+style #2 stick
+color #2 byelement
+
+# --- Highlight binding site residues within 5Å of ligand ---
+select #1 & protein & (#2 :< 5)
+show sel atoms
+style sel stick
+color sel byelement
+~select
+
+# --- Surface on binding pocket residues ---
+surface #1 & protein & (#2 :< 5)
+color #1 surface #a8c8e8 transparency 50
+
+# --- Focus view on the ligand ---
+view #2
+zoom 0.85
+
+# --- Labels ---
+label #2 residues text "{0.name}" size 14 color gold
+
+# --- Lighting and background ---
+lighting soft
+set bgColor white
+graphics silhouettes true
+
+# --- Center and orient ---
+cofr #2 centerOfMass

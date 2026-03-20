@@ -1,0 +1,54 @@
+# ChimeraX session script — Thiolactomycin docked pose vs crystal structure (2AQ7)
+# Clean view: ribbon diagrams + small molecules only
+
+# Load our docked receptor and Thiolactomycin pose
+open ../receptor/2VBA_prepared.pdb
+open Thiolactomycin_docked.pdb
+
+# Load the crystal structure with co-crystallized TL5
+open ../receptor/2AQ7.pdb
+
+# Rename for clarity
+rename #1 name FabB_2VBA
+rename #2 name Thiolactomycin_docked
+rename #3 name FabB_2AQ7_crystal
+
+# Align 2AQ7 onto our receptor
+matchmaker #3 to #1 showAlignment false
+
+# --- Show only ribbons for both receptors ---
+hide #1 atoms
+hide #3 atoms
+cartoon #1
+cartoon #3
+
+# --- Color the two receptor ribbons distinctly ---
+color #1 cartoon #5b9bd5    # blue  — our 2VBA receptor
+color #3 cartoon #e07b54    # orange — 2AQ7 crystal structure
+
+# --- Show only small molecules (no side chains) ---
+# Docked Thiolactomycin
+show #2 atoms
+style #2 stick
+color #2 byelement
+
+# Crystal TL5 ligand from 2AQ7 (het atoms only, no water)
+show #3 & hetatm & ~solvent atoms
+style #3 & hetatm & ~solvent stick
+color #3 & hetatm & ~solvent byelement
+
+# --- Hide any lingering sidechain atoms ---
+hide #1 & sidechain atoms
+hide #3 & sidechain atoms
+
+# --- Focus view on the ligands ---
+view #2
+
+# --- Clean lighting and background ---
+lighting soft
+set bgColor white
+graphics silhouettes true
+
+# Legend labels on the ribbons
+label #1 models text "2VBA (docked)" color #5b9bd5 size 16
+label #3 models text "2AQ7 (crystal)" color #e07b54 size 16
