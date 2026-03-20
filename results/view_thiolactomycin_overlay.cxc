@@ -1,7 +1,5 @@
 # ChimeraX session script — Thiolactomycin docked pose vs 2AQB crystal (TL6)
-# Pre-cleaned PDBs: one A+B dimer each, ligands already included
 
-# Open pre-extracted dimer PDBs
 open ../receptor/2VBA_AB.pdb
 open ../receptor/2AQB_AB.pdb
 open Thiolactomycin_docked.pdb
@@ -13,27 +11,23 @@ rename #3 name Thiolactomycin_docked
 # Align 2AQB onto 2VBA
 matchmaker #2 to #1 showAlignment false
 
-# Ribbon for both receptors, no atoms
+# Ribbons for both receptors
 cartoon #1
 cartoon #2
-hide #1 atoms
-hide #2 atoms
-
-# Color ribbons
 color #1 cartoon #5b9bd5
 color #2 cartoon #e07b54
 
-# Show all small molecules in 2AQB (TL6 — already the only hetatm)
-show #2 & ligand atoms
-style #2 & ligand stick
-color #2 & ligand byelement
+# Show all atoms in 2AQB, then hide only the protein — leaving TL6 visible
+show #2 atoms
+hide #2 & protein atoms
+style #2 :TL6 stick
+color #2 :TL6 byelement
 
-# Show docked thiolactomycin
+# Docked thiolactomycin
 show #3 atoms
 style #3 stick
 color #3 byelement
 
-# Focus on ligands
 view #3
 lighting soft
 set bgColor white
