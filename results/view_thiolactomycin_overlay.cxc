@@ -32,10 +32,10 @@ show #2 atoms
 style #2 stick
 color #2 byelement
 
-# Crystal TL5 ligand from 2AQ7 (het atoms only, no water)
-show #3 & hetatm & ~solvent atoms
-style #3 & hetatm & ~solvent stick
-color #3 & hetatm & ~solvent byelement
+# Crystal TL5 ligand from 2AQ7 — select by residue name
+show #3:TL5 atoms
+style #3:TL5 stick
+color #3:TL5 byelement
 
 # --- Hide any lingering sidechain atoms ---
 hide #1 & sidechain atoms
