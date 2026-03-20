@@ -67,3 +67,10 @@ if __name__ == "__main__":
         keep_chains=["A", "B"],
         keep_hetatm_resnames=["TL6"],
     )
+
+    extract_dimer(
+        input_pdb=str(BASE / "receptor" / "1FJ8.pdb"),
+        output_pdb=str(BASE / "receptor" / "1FJ8_AB.pdb"),
+        keep_chains=["A", "B"],
+        keep_hetatm_resnames=["CER"],
+    )

@@ -1,0 +1,34 @@
+# ChimeraX session script — Cerulenin docked pose vs 1FJ8 crystal (CER)
+
+open ../receptor/2VBA_AB.pdb
+open ../receptor/1FJ8_AB.pdb
+open Cerulenin_docked.pdb
+
+rename #1 name FabB_2VBA
+rename #2 name FabB_1FJ8_crystal
+rename #3 name Cerulenin_docked
+
+# Align 1FJ8 onto 2VBA
+matchmaker #2 to #1 showAlignment false
+
+# Ribbons for both receptors
+cartoon #1
+cartoon #2
+color #1 cartoon #5b9bd5
+color #2 cartoon #e07b54
+
+# Crystal CER ligand — show all atoms then hide protein
+show #2 atoms
+hide #2 & protein atoms
+style #2 :CER stick
+color #2 :CER byelement
+
+# Docked cerulenin
+show #3 atoms
+style #3 stick
+color #3 byelement
+
+view #3
+lighting soft
+set bgColor white
+graphics silhouettes true
