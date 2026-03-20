@@ -1,0 +1,30 @@
+rank,name,class,affinity_kcal_mol,mol_weight,logP,lipinski,smiles
+1,Platensimycin,Terpenoid / FabB inhibitor,-8.963,385.5,3.84,Pass,O=C(O)c1cc(NC(=O)[C@@H]2CC[C@]3(C)CC[C@@H]4CC(=O)C[C@H]4[C@@H]3C2)ccc1O
+2,Quercetin,Flavonoid,-8.837,302.2,1.99,Pass,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12
+3,Luteolin,Flavonoid,-8.657,286.2,2.28,Pass,O=c1cc(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12
+4,Catechin,Flavonoid,-8.411,260.2,1.77,Pass,Oc1cc2c(cc1O)C(O)Cc1cc(O)c(O)cc1-2
+5,Resveratrol,Stilbenoid,-8.395,228.2,2.97,Pass,Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1
+6,Kaempferol,Flavonoid,-8.365,286.2,2.28,Pass,O=c1c(O)c(-c2ccc(O)cc2)oc2cc(O)cc(O)c12
+7,Apigenin,Flavonoid,-8.339,270.2,2.58,Pass,O=c1cc(-c2ccc(O)cc2)oc2cc(O)cc(O)c12
+8,Piperin,Alkaloid,-8.303,285.3,3.00,Pass,O=C(/C=C/C=C/c1ccc2c(c1)OCO2)N1CCCCC1
+9,Platencin,Terpenoid / FabB inhibitor,-8.302,357.4,3.20,Pass,O=C(O)c1cc(NC(=O)[C@@H]2CC[C@]3(CC[C@@H]4CC(=O)C[C@H]43)C2)ccc1O
+10,Capsaicin,Vanilloid alkaloid,-8.249,305.4,3.79,Pass,COc1cc(CNC(=O)CCCC/C=C/C(C)C)ccc1O
+11,Naringenin,Flavanone,-8.151,272.3,2.51,Pass,O=C1CC(c2ccc(O)cc2)Oc2cc(O)cc(O)c21
+12,Curcumin,Diarylheptanoid,-8.024,368.4,3.37,Pass,O=C(/C=C/c1ccc(O)c(OC)c1)CC(=O)/C=C/c1ccc(O)c(OC)c1
+13,Betulinic_acid,Lupane triterpenoid,-7.940,456.7,7.09,Fail,CC(=C)[C@@H]1CC[C@]2([C@H]1[C@H]3CC[C@@H]4[C@]5(CC[C@@H](C([C@@H]5CC[C@]4([C@@]3(CC2)C)C)(C)C)O)C)C(=O)O
+14,Berberine,Isoquinoline alkaloid,-7.509,257.3,3.24,Pass,COc1ccc2cc3c(cc2c1OC)N(C)CCC3
+15,Farnesol,Sesquiterpene,-7.245,222.4,4.40,Pass,CC(=CCC/C(C)=C/CCC(C)=CCO)C
+16,Caffeic_acid,Hydroxycinnamic acid,-7.086,180.2,1.20,Pass,OC(=O)/C=C/c1ccc(O)c(O)c1
+17,Cerulenin,Epoxy amide / FabB inhibitor,-7.010,223.3,1.11,Pass,C/C=C/C/C=C/CCC(=O)[C@@H]1[C@@H](O1)C(=O)N
+18,Coumarin,Benzopyrone,-6.727,146.1,1.79,Pass,O=c1ccc2ccccc2o1
+19,Geraniol,Monoterpene,-6.206,154.3,2.67,Pass,CC(=CCC/C(C)=C/CO)C
+20,Carvacrol,Monoterpenoid phenol,-6.188,150.2,2.82,Pass,Cc1ccc(C(C)C)cc1O
+21,Thymol,Monoterpenoid phenol,-6.070,150.2,2.82,Pass,Cc1cc(O)c(C(C)C)cc1
+22,Cinnamaldehyde,Phenylpropanoid,-6.053,132.2,1.90,Pass,O=C/C=C/c1ccccc1
+23,Terpinen-4-ol,Monoterpenoid,-5.986,154.3,2.36,Pass,CC1CC(O)(C(C)C)CC=C1
+24,Eugenol,Phenylpropanoid,-5.918,164.2,2.13,Pass,C=CCc1ccc(O)c(OC)c1
+25,Thiolactomycin,Thiolactone / FabB inhibitor,-5.523,170.2,2.37,Pass,CC1=C(C(=O)O)C(C)=C(C)S1
+26,Linalool,Monoterpene alcohol,-5.160,140.2,2.28,Pass,CC(=C)CCC(O)(C)C=C
+27,Oleanolic_acid,Oleanane triterpenoid,-4.286,388.6,5.82,Fail,CC1(C)CCC2(C(=O)O)CCC3(C)C(=CC4C3CC(O)(CC4C)C(C)(C)C2)C1
+28,Allicin,Organosulfur,-4.052,162.3,1.76,Pass,O=S(CC=C)SCC=C
+29,Ursolic_acid,Ursane triterpenoid,-3.607,388.6,5.67,Fail,CC1CCC2(C(=O)O)CCC3(C)C(=CC4C3CC(O)(CC4C)C(C)(C)C2)C1C
