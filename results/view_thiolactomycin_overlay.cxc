@@ -1,23 +1,23 @@
-# ChimeraX session script — Thiolactomycin docked pose vs crystal structure (2AQ7)
+# ChimeraX session script — Thiolactomycin docked pose vs crystal structure (2AQB)
 # Clean view: ribbon diagrams + small molecules only, one dimer each
 
-# Load our docked receptor (chains A+B dimer) and Thiolactomycin pose
+# Load our docked receptor and Thiolactomycin pose
 open ../receptor/2VBA_prepared.pdb
 open Thiolactomycin_docked.pdb
 
-# Load crystal structure
-open ../receptor/2AQ7.pdb
+# Load crystal structure with TL6 bound in both active sites
+open ../receptor/2AQB.pdb
 
 # Rename for clarity
 rename #1 name FabB_2VBA
 rename #2 name Thiolactomycin_docked
-rename #3 name FabB_2AQ7_crystal
+rename #3 name FabB_2AQB_crystal
 
 # --- Trim to one dimer: keep only chains A and B ---
 delete #1/C,D
 delete #3/C,D
 
-# --- Align 2AQ7 onto our receptor ---
+# --- Align 2AQB onto our receptor ---
 matchmaker #3 to #1 showAlignment false
 
 # --- Show ribbons only, no atoms ---
@@ -28,14 +28,14 @@ hide #3 atoms
 
 # --- Color the two receptors distinctly ---
 color #1 cartoon #5b9bd5    # blue  — 2VBA (our docked receptor)
-color #3 cartoon #e07b54    # orange — 2AQ7 crystal
+color #3 cartoon #e07b54    # orange — 2AQB crystal
 
 # --- Docked Thiolactomycin (our result) ---
 show #2 atoms
 style #2 stick
 color #2 byelement
 
-# --- Crystal TL5 ligands from chains A and B of 2AQ7 ---
+# --- Crystal TL6 ligands from chains A and B of 2AQB ---
 show #3/A:600 atoms
 show #3/B:601 atoms
 style #3/A:600 stick
