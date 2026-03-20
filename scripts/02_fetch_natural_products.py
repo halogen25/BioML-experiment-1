@@ -22,9 +22,7 @@ LIGAND_DIR.mkdir(exist_ok=True)
 FULL_LIBRARY = False
 
 def fetch_zinc_natural_products():
-    """Fetch natural product SMILES from ZINC22 NP tranche."""
-    # ZINC22 natural products - MW 200-400, logP -1 to 4 (drug-like NPs)
-    url = "https://zinc22.docking.org/substances/subsets/natural-products.smi"
+    """Fetch natural product SMILES from ZINC15 API (250 compounds)."""
     output_file = LIGAND_DIR / "natural_products_zinc.smi"
 
     if output_file.exists():
@@ -32,16 +30,21 @@ def fetch_zinc_natural_products():
         print(f"Library already exists: {len(lines)} compounds in {output_file}")
         return str(output_file)
 
-    print(f"Downloading ZINC natural products library...")
-    print(f"URL: {url}")
+    # ZINC15 REST API — natural products subset, drug-like, in-stock
+    url = (
+        "https://zinc15.docking.org/substances/subsets/natural-products/"
+        "?count=250&output_fields=smiles,zinc_id,name&format=csv"
+    )
+    print(f"Downloading ZINC15 natural products library (250 compounds)...")
     try:
-        resp = requests.get(url, timeout=60, stream=True)
+        resp = requests.get(url, timeout=60, headers={"Accept": "text/csv"})
         resp.raise_for_status()
-        with open(output_file, "wb") as f:
-            for chunk in resp.iter_content(chunk_size=8192):
-                f.write(chunk)
-        lines = output_file.read_text().strip().splitlines()
-        print(f"Downloaded {len(lines)} compounds.")
+        # Validate it's actually CSV, not HTML
+        if resp.text.strip().startswith("<"):
+            raise ValueError("Received HTML instead of CSV — API unavailable")
+        output_file.write_text(resp.text)
+        lines = resp.text.strip().splitlines()
+        print(f"Downloaded {len(lines) - 1} compounds.")
         return str(output_file)
     except Exception as e:
         print(f"ZINC download failed ({e}), falling back to curated seed set...")
